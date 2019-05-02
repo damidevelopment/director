@@ -502,6 +502,8 @@ Router.prototype.invoke = function(fns, thisArg, callback) {
         return _asyncEverySeries(fn, apply, next);
       } else if (typeof fn == "function") {
         fn.apply(thisArg, (fns.captures || []).concat(next));
+      } else if (typeof fn === "string" && self.resource) {
+        self.resource[fn].apply(thisArg, (fns.captures || []).concat(next));
       }
     };
     _asyncEverySeries(fns, apply, function() {
