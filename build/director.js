@@ -1,10 +1,3 @@
-
-
-//
-// Generated on Tue Dec 16 2014 12:13:47 GMT+0100 (CET) by Charlie Robbins, Paolo Fragomeni & the Contributors (Using Codesurgeon).
-// Version 1.2.6
-//
-
 (function (exports) {
 
 /*
@@ -721,7 +714,5 @@ Router.prototype.mount = function(routes, path) {
     }
   }
 };
-
-
 
 }(typeof exports === "object" ? exports : window));
