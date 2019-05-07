@@ -334,7 +334,8 @@ function paramifyString(str, params, mod) {
       }
     }
   }
-  return mod === str ? "([._a-zA-Z0-9-%()]+)" : mod;
+  let isOpt = /\?$/.test(str);
+  return (isOpt ? '?' : '') + (mod === str ? "([._a-zA-Z0-9-%()]+)" : mod) + (isOpt ? '?' : '');
 }
 
 function regifyString(str, params) {
