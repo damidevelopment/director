@@ -1,5 +1,30 @@
 ![Logo](https://github.com/flatiron/director/raw/master/img/director.png)
 
+Damidev change notes:
+- `./bin/build` is not working, so we change router only inside build.
+- We extended functionality of `paramifyString`, behavior of route patterns is now more similar to [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) lib.
+
+Extended logic for route definitions:
+```
+var router = Router({
+    //
+    // Named props
+    // given the route '/hello/world/123'.
+    //
+    '/hello': {
+      '/world/:uuid(\\d)': function (a, b) {
+        console.log(a, b);
+      },
+      // optional props
+      // when named prop ends with '?', builder paramifyString adds '?' at start of the regexp,
+      // so the delimiter could be optional too.
+      '/world/:uuid?': function (a, b) {
+        console.log(a, b);
+      }
+    }
+});
+```
+
 # Synopsis
 
 Director is a router. Routing is the process of determining what code to run
